@@ -12,5 +12,11 @@ public class WorldEnvironment {
       return result;}
     return instance;
 }
-public setEnvironment
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+        this.enemy = EnemyFactory.Enemy;
+    }
+    public String getEnvironment() {
+        return environment;
+    }
 }
