@@ -7,9 +7,9 @@ public class WorldEnvironment {
     this.environment = environment;
 }*/
   public static WorldEnvironment getInstance(String environment){
-    WorldEnvironment result = instance;
-    if(result==null){
-      return result;}
+    if(instance==null){
+      return new WorldEnvironment(environment);
+    }
     return instance;
 }
     public void setEnvironment(String environment) {
