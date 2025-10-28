@@ -1,0 +1,16 @@
+public class WorldEnvironment {
+  private static WorldEnvironment instance;
+
+  public String environment
+  public String enemy
+  /*public WorldEnvironment(String environement){
+    this.environment = environment;
+}*/
+  public static WorldEnvironment getInstance(String environment){
+    WorldEnvironment result = instance;
+    if(result==null){
+      return result;}
+    return instance;
+}
+public setEnvironment
+}
