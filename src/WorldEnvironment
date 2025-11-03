@@ -16,7 +16,7 @@ public class WorldEnvironment {
 }
     public void setEnvironment(String environment) {
         this.environment = environment;
-        this.enemy = EnemyFactory.createEnemy;
+        this.enemy = EnemyFactory.createEnemy(environment);
     }
     public String getEnvironment() {
         return environment;
