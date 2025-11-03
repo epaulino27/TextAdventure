@@ -1,27 +1,31 @@
 public class WorldEnvironment {
-  private static WorldEnvironment instance;
+    private static WorldEnvironment instance;
 
-  public String environment
-  private Fightable enemy
-
-  public WorldEnvironment(String environement){
-    this.environment = environment;
-    this.enemy = EnemyFactory.Enemy;
-}
-  public static WorldEnvironment getInstance(String environment){
-    if(instance==null){
-      return new WorldEnvironment(environment);
-    }
-    return instance;
-}
-    public void setEnvironment(String environment) {
+    public String environment;
+    private Fightable enemy;
+    
+    public WorldEnvironment(String environment) {
         this.environment = environment;
-        this.enemy = EnemyFactory.createEnemy(environment);
     }
-    public String getEnvironment() {
+    public static WorldEnvironment getInstance(String environment) {
+        if (instance == null) {
+            return new WorldEnvironment(environment);
+    }
+        return instance;
+}
+
+    public void setEnvironment(String environment) {
+        EnemyFactory factory = new EnemyFactory();
+        this.environment = environment;
+        this.enemy = factory.Enemy(environment);
+    }
+    public getEnvironment() {
         return environment;
     }
-  public Fightable getEnemy(){
+    public Fightable getEnemy(){
         return enemy;
     }
+
 }
+
+
