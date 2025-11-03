@@ -3,9 +3,11 @@ public class WorldEnvironment {
 
   public String environment
   public String enemy
-  /*public WorldEnvironment(String environement){
+
+  public WorldEnvironment(String environement){
     this.environment = environment;
-}*/
+    this.enemy = EnemyFactory.Enemy;
+}
   public static WorldEnvironment getInstance(String environment){
     if(instance==null){
       return new WorldEnvironment(environment);
@@ -14,7 +16,7 @@ public class WorldEnvironment {
 }
     public void setEnvironment(String environment) {
         this.environment = environment;
-        this.enemy = EnemyFactory.Enemy;
+        this.enemy = EnemyFactory.createEnemy;
     }
     public String getEnvironment() {
         return environment;
