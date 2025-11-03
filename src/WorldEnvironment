@@ -1,30 +1,37 @@
 public class WorldEnvironment {
     private static WorldEnvironment instance;
 
-    public String environment;
-    private Fightable enemy;
-    
-    public WorldEnvironment(String environment) {
-        this.environment = environment;
+    private static String environment;
+
+    private WorldEnvironment() {
+        this.environment = "water"; //default
+
     }
-    public static WorldEnvironment getInstance(String environment) {
-        if (instance == null) {
-            return new WorldEnvironment(environment);
-    }
+    public static WorldEnvironment getInstance() {
+        if (instance == null) { //check 1
+            synchronized (WorldEnvironment.class) { //check 2
+                if (instance == null) {//check 3
+                    //failsafe
+                    try {
+                        Thread.sleep(100); //check this long if it works
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    //make new if needed
+                    instance = new WorldEnvironment();
+                }
+            }
+    }   //finally get the instance that either already existed or was just created
         return instance;
 }
 
     public void setEnvironment(String environment) {
-        EnemyFactory factory = new EnemyFactory();
         this.environment = environment;
-        this.enemy = factory.Enemy(environment);
     }
-    public getEnvironment() {
+    public String getEnvironment() {
         return environment;
     }
-    public Fightable getEnemy(){
-        return enemy;
-    }
+    
 
 }
 
