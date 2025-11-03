@@ -1,12 +1,13 @@
 public class WorldEnvironment {
     private static WorldEnvironment instance;
 
-    public static String environment;
+    private static String environment;
 
-    public WorldEnvironment(String environment) {
-        this.environment = environment;
+    private WorldEnvironment() {
+        this.environment = "water"; //default
+
     }
-    public static WorldEnvironment getInstance(String environment) {
+    public static WorldEnvironment getInstance() {
         if (instance == null) { //check 1
             synchronized (WorldEnvironment.class) { //check 2
                 if (instance == null) {//check 3
@@ -17,12 +18,12 @@ public class WorldEnvironment {
                         throw new RuntimeException(e);
                     }
                     //make new if needed
-                    instance = new WorldEnvironment(environment);
+                    instance = new WorldEnvironment();
                 }
             }
-        }   //finally get the instance that either already existed or was just created
+    }   //finally get the instance that either already existed or was just created
         return instance;
-    }
+}
 
     public void setEnvironment(String environment) {
         this.environment = environment;
@@ -30,11 +31,9 @@ public class WorldEnvironment {
     public String getEnvironment() {
         return environment;
     }
-    public static Fightable makeEnemy(){
-        EnemyFactory factory = new EnemyFactory();
-        return factory.Enemy(environment);
-    }
+    
 
 }
+
 
 
