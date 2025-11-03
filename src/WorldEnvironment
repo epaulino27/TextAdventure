@@ -2,7 +2,7 @@ public class WorldEnvironment {
   private static WorldEnvironment instance;
 
   public String environment
-  public String enemy
+  private Fightable enemy
 
   public WorldEnvironment(String environement){
     this.environment = environment;
@@ -20,5 +20,8 @@ public class WorldEnvironment {
     }
     public String getEnvironment() {
         return environment;
+    }
+  public Fightable getEnemy(){
+        return enemy;
     }
 }
