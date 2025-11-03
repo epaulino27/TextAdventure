@@ -5,6 +5,15 @@ public class Main {
         Player player = new Player();
         Kraken enemy = new Kraken();
 
-        player.fight(enemy);
+        //previous Fight Before Command Implementation
+        // player.fight(enemy);
+
+        CommandInvoker Button =new CommandInvoker();
+        CommandAttack Attack =new CommandAttack(player,enemy);
+
+        Button.setCurCommand(Attack);
+        Button.executeCommand();
+
+
     }
 }
