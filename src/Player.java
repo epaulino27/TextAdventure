@@ -35,6 +35,9 @@ public class Player extends Fightable {
             if(enemy.health <= 0){
                 enemy.setStatus(false);
                 System.out.println("The enemy has been defeated.");
+
+                // notify observers when enemy dies
+                enemy.notifyDeath(enemy.getClass().getSimpleName());
             }
         }
         else{
