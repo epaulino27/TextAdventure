@@ -21,11 +21,16 @@ public class WildBoar extends Fightable {
             System.out.println("Player health at " + player.health);
             if(player.health <= 0){
                 player.setStatus(false);
-                System.out.println("Player has been defeated.");
             }
         }
         else{
             System.out.println("Player dodged, Wild Boar has missed!");
+        }
+
+        // notify observers when dead
+        if(this.health <= 0 && this.isAlive){
+            this.setStatus(false);
+            notifyDeath("Wild Boar");
         }
     }
 }
