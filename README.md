@@ -16,7 +16,7 @@ In a game the environment needs to be consistent which is why we use only one in
 encapsulates attack, into a a command interface, called via CommandInvoker
 
 ### 4. Observer
-
+Notifies whenever a loot drop occurs after an enemy is defeated.
 
 ## Features
 - can create 3 types of enemies: Boar, Bat, Kraken based on environment
