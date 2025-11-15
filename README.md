@@ -12,6 +12,7 @@ Includes Fightable interface,
 ### 2. Singleton
 
 ### 3. Command
+encapsulates attack, into a a command interface, called via CommandInvoker
 
 ### 4. Observer
 
